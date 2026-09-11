@@ -34,19 +34,19 @@
 ### 1. 完整链接代理 (推荐)
 直接将原本的 GitHub 链接拼接在代理域名之后：
 ```bash
-wget https://gh.yourdomain.com/https://github.com/hunshcn/gh-proxy/archive/master.zip
+wget https://gh.yourdomain.com/https://github.com/aurorax-neo/githubx/archive/main.zip
 ```
 
 ### 2. 省略协议前缀
 ```bash
-wget https://gh.yourdomain.com/github.com/hunshcn/gh-proxy/archive/master.zip
-wget https://gh.yourdomain.com/raw.githubusercontent.com/hunshcn/gh-proxy/master/package.json
+wget https://gh.yourdomain.com/github.com/aurorax-neo/githubx/archive/main.zip
+wget https://gh.yourdomain.com/raw.githubusercontent.com/aurorax-neo/githubx/main/index.js
 ```
 
 ### 3. 省略域名极简模式
 当路径匹配 `releases` / `archive` / `blob` / `raw` 时，系统会自动补充 `https://github.com/`：
 ```bash
-wget https://gh.yourdomain.com/hunshcn/gh-proxy/archive/master.zip
+wget https://gh.yourdomain.com/aurorax-neo/githubx/archive/main.zip
 ```
 
 ## 🔒 域名白名单限制
