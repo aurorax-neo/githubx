@@ -42,6 +42,11 @@ export default {
         redirect: 'manual'
     };
     
+    // 透传请求体 (如果是 POST/PUT 等推送操作)
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+        init.body = request.body;
+    }
+
     // 清除可能暴露或导致源站拒绝的 Header
     init.headers.delete('Host');
     init.headers.delete('X-Forwarded-For');
