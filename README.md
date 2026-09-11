@@ -19,7 +19,7 @@
 1. 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)，选择你要绑定的域名。
 2. 在左侧菜单中找到并点击 **Rules (规则)** -> **Snippets**。
 3. 点击 **Create Snippet (创建 Snippet)**，命名随意（例如 `gh-proxy`）。
-4. 将 `gh-proxy-snippet.js` 中的代码全部复制并粘贴到代码编辑器中。
+4. 将 `index.js` 中的代码全部复制并粘贴到代码编辑器中。
 5. 配置触发条件 (Trigger)：
    - 字段选择 `Hostname`，操作符选择 `equals`，值填写你准备用来代理的子域名（例如：`gh.yourdomain.com`）。
    - 或者配置 `URI Path` 匹配特定路径。
