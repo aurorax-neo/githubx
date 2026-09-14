@@ -3,9 +3,9 @@ export default {
     const url = new URL(request.url);
     let targetStr = url.pathname.substring(1) + url.search;
     
-    // 如果没有指定代理目标，纯后端静默返回 404
+    // 如果没有指定代理目标，返回空 404 避免探测
     if (!targetStr || targetStr === "favicon.ico") {
-        return new Response("Not Found", { status: 404 });
+        return new Response(null, { status: 404 });
     }
 
     // 智能补全 GitHub 前缀
@@ -21,7 +21,7 @@ export default {
     try {
         targetUrl = new URL(targetStr);
     } catch (e) {
-        return new Response("Bad Request", { status: 400 });
+        return new Response(null, { status: 404 });
     }
 
     // 域名白名单限制
@@ -33,7 +33,7 @@ export default {
     ];
     
     if (!allowedDomains.some(d => targetUrl.hostname === d || targetUrl.hostname.endsWith('.' + d))) {
-        return new Response("Forbidden", { status: 403 });
+        return new Response(null, { status: 404 });
     }
 
     const init = {
@@ -81,7 +81,7 @@ export default {
             headers: newHeaders
         });
     } catch (e) {
-        return new Response("Internal Server Error", { status: 500 });
+        return new Response(null, { status: 404 });
     }
   }
 };
